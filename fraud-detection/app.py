@@ -87,8 +87,8 @@ st.markdown("""
 # ─────────────────────────────────────────
 @st.cache_resource
 def load_model():
-    model_path = "models/fraud_model.pkl"
-    scaler_path = "models/scaler.pkl"
+    model_path = os.path.join(os.path.dirname(__file__), "models", "fraud_model.pkl")
+    scaler_path = os.path.join(os.path.dirname(__file__), "models", "scaler.pkl")
     if os.path.exists(model_path) and os.path.exists(scaler_path):
         with open(model_path, "rb") as f:
             model = pickle.load(f)
